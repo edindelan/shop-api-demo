@@ -3,7 +3,7 @@
 This is a simple single page application that showcases basic capabilities of Zalando Shop API, such as fetching categories,
 using them to filter articles and finally getting detailed information about the article.
 
-[See it in action](zalando.github.io/shop-api-demo/)
+[See it in action](http://zalando.github.io/shop-api-demo/)
 
 ## Development
 
