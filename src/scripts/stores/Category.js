@@ -1,12 +1,12 @@
 var BaseStore = require('./Base');
 
-function ArticleStore(options) {
+function CategoryStore(options) {
     BaseStore.call(this, options);
 }
 
-ArticleStore.prototype = Object.create(BaseStore.prototype);
+CategoryStore.prototype = Object.create(BaseStore.prototype);
 
-Object.assign(ArticleStore.prototype, {
+Object.assign(CategoryStore.prototype, {
     resourceName: 'categories',
     processResponse: function (data) {
         // for this demo we don't care about pagination info
@@ -23,5 +23,5 @@ Object.assign(ArticleStore.prototype, {
     }
 });
 
-module.exports = ArticleStore;
+module.exports = CategoryStore;
 

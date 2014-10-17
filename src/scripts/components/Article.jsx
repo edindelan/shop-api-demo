@@ -77,7 +77,7 @@ module.exports = React.createClass({
                 <div className="details">
                     <h2>Sizes</h2>
                     <p>
-                        {(article.sizes || article.manifestations).map(function (size) {
+                        {(article.sizes).map(function (size) {
                             return <span className="size">{size.size}</span>;
                         })}
                     </p>
@@ -92,7 +92,7 @@ module.exports = React.createClass({
                             );
                         })}
                     </ul>
-                    <a href={article.url} className="linkToShop">See on Zalando</a>
+                    <a href={article.shopUrl} className="linkToShop">See on Zalando</a>
                 </div>
             </div>
         );
