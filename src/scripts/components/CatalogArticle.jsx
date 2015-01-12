@@ -6,11 +6,11 @@ module.exports = React.createClass({
     render: function () {
         var article = this.props.article || {};
         return (
-            <Router.Link to="article" params={article} className="catalogArticle" key={article.sku}>
-                <img src={article.image.detail} alt={article.name} />
+            <Router.Link to="article" params={article} className="catalogArticle" key={article.id}>
+                <img src={article.media.images[0].smallHdUrl} alt={article.name} />
                 <div className="name">{article.name}</div>
                 <div className="price">
-                    {article.price.formatted}
+                    {article.units[0].price.formatted}
                 </div>
             </Router.Link>
         );

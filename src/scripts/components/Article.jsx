@@ -11,9 +11,9 @@ module.exports = React.createClass({
         this.setState(this.store.getState());
     },
     componentWillMount: function () {
-        if (this.props.params.sku) {
+        if (this.props.params.id) {
             this.store = new BaseStore(null, {
-                resourceName: 'articles/' + this.props.params.sku
+                resourceName: 'articles/' + this.props.params.id
             });
             this.store.on('change', this.updateFromStoreState);
             this.updateFromStoreState();
@@ -27,8 +27,8 @@ module.exports = React.createClass({
         });
     },
     componentWillReceiveProps: function (nextProps) {
-        if (this.props.params.sku !== nextProps.params.sku) {
-            this.store.resourceName = 'articles/' + nextProps.params.sku;
+        if (this.props.params.id !== nextProps.params.id) {
+            this.store.resourceName = 'articles/' + nextProps.params.id;
             this.store.update();
         }
     },
@@ -60,15 +60,15 @@ module.exports = React.createClass({
                 <div className="sliderWrapper">
                     <img className="brandLogo" src={article.brand.logoUrl}/>
                     <div className="pricePositioner">
-                        {article.price.value !== article.originalPrice.value ?
-                            <div className="originalPrice">{article.originalPrice.formatted}</div> : false}
-                        <div className="currentPrice">{article.price.formatted}</div>
+                        {article.units[0].price.value !== article.units[0].originalPrice.value ?
+                            <div className="originalPrice">{article.units[0].originalPrice.formatted}</div> : false}
+                        <div className="currentPrice">{article.units[0].price.formatted}</div>
                     </div>
                     <div className="slider">
-                        {article.images.map(function (image, i) {
+                        {article.media.images.map(function (image, i) {
                             return (
                                 <div class="slide">
-                                    <img src={image.detail} key={i} />
+                                    <img src={image.smallHdUrl} key={i} />
                                 </div>
                             );
                         })}
@@ -77,8 +77,8 @@ module.exports = React.createClass({
                 <div className="details">
                     <h2>Sizes</h2>
                     <p>
-                        {(article.sizes).map(function (size) {
-                            return <span className="size">{size.size}</span>;
+                        {(article.units).map(function (unit) {
+                            return <span className="size">{unit.size}</span>;
                         })}
                     </p>
                     <h2>Description</h2>
