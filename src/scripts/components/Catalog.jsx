@@ -25,7 +25,7 @@ module.exports = React.createClass({
         var list = this.state.data || [];
         return <div className={"catalog " + this.state.status}>
             {list.map(function(article) {
-                return <CatalogArticle article={article} key={article.sku} />;
+                return <CatalogArticle article={article} key={article.id} />;
             })}
         </div>;
     }
