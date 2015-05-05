@@ -6,7 +6,7 @@ module.exports = React.createClass({
         return (
             <div className="app">
                 <nav>
-                    <a href="/" className="logo">
+                    <a href="." className="logo">
                         <img className="logoImage" src="images/logo.png" alt="Zalando"/>
                     </a>
                 </nav>
