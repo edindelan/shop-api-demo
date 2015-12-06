@@ -7,7 +7,7 @@ using them to filter articles and finally getting detailed information about the
 
 ## Development
 
-If you choose to use this as a starting point for your, there are a couple of things that need to be installed:
+There are a couple of things that need to be installed first:
 
 * [Node.js](http://nodejs.org/)
 * gulp (`npm install -g gulp`)
