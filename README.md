@@ -1,6 +1,6 @@
 # Zalando Shop API Demo
 
-This is a simple single page application that showcases basic capabilities of Zalando Shop API, such as fetching categories,
+This is a simple single page application that showcases basic capabilities of [Zalando Shop API](https://github.com/zalando/shop-api-documentation), such as fetching categories,
 using them to filter articles and finally getting detailed information about the article.
 
 [See it in action](http://zalando.github.io/shop-api-demo/)
@@ -10,9 +10,9 @@ using them to filter articles and finally getting detailed information about the
 There are a couple of things that need to be installed first:
 
 * [Node.js](http://nodejs.org/)
-* gulp (`npm install -g gulp`)
+* gulp (`sudo npm install -g gulp`)
 
-After that you navigate to the route of this repository and type:
+Now, enter the directory the repository was cloned to and type:
 
     npm install
     gulp
