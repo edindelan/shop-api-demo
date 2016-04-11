@@ -25,3 +25,6 @@ This will install all the necessary dependencies and spin up webpack development
 * [React](http://facebook.github.io/react/) for UX layer
 * [LESS](http://lesscss.org/) for styles
 * [Karma](http://karma-runner.github.io/) + [Chai](http://chaijs.com/) for testing
+
+## Sample Projects
+* [Zalmemo](https://github.com/goekhanak/zalmemo): Created during Zalando [Hack Week](https://tech.zalando.com/blog/one-last-thing-before-we-call-it-a-year-hack-week-4/). A simple memory game built with Angular 2.  
