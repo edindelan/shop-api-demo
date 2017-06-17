@@ -1,13 +1,14 @@
-var React = require('react/addons');
+import React, { Component } from 'react';
 
-module.exports = React.createClass({
-    displayName: 'Layout',
-    render: function () {
+import logo from '../../images/logo.png';
+
+class Layout extends Component {
+    render() {
         return (
             <div className="app">
                 <nav>
                     <a href="." className="logo">
-                        <img className="logoImage" src="images/logo.png" alt="Zalando"/>
+                        <img className="logoImage" src={logo} alt="Zalando"/>
                     </a>
                 </nav>
                 {this.props.children}
@@ -19,4 +20,6 @@ module.exports = React.createClass({
             </div>
         );
     }
-});
+}
+
+export default Layout;

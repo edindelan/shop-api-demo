@@ -1,5 +1,5 @@
 var React = require('react/addons');
-var ArticleStore = require('../stores/Article');
+var ArticleStore = require('../scripts/stores/Article');
 var CatalogArticle = require('./CatalogArticle');
 
 module.exports = React.createClass({

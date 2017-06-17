@@ -1,5 +1,5 @@
 var React = require('react/addons');
-var CategoryStore = require('../stores/Category');
+var CategoryStore = require('../scripts/stores/Category');
 var Filters = require('./Filters');
 var Catalog = require('./Catalog');
 

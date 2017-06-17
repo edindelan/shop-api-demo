@@ -1,61 +1,87 @@
-/*
- * Webpack development server configuration
- *
- * This file is set up for serving the webpak-dev-server, which will watch for changes and recompile as required if
- * the subfolder /webpack-dev-server/ is visited. Visiting the root will not automatically reload.
- */
-
-'use strict';
-var webpack = require('webpack');
+const { resolve } = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-    output: {
-        path: __dirname + "/dist/scripts",
-        publicPath: '/scripts/',
-        filename: "main.js"
-    },
+    context: resolve(__dirname, 'src'),
 
     entry: [
-        './scripts/main.jsx'
+        'react-hot-loader/patch',
+        'webpack/hot/only-dev-server',
+        './index.js'
     ],
 
-    cache: true,
-    debug: false,
-    devtool: false,
-    context: __dirname + '/src',
+    devtool: 'source-map',
 
-    stats: {
-        colors: true,
-        reasons: true
+    output: {
+        path: resolve(__dirname, 'dist'),
+        filename: 'js/bundle.js',
+
+        publicPath: '/'
     },
 
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ],
+    devServer: {
+        hot: true,
 
-    resolve: {
-        // Allow to omit extensions when requiring these files
-        extensions: ['', '.js', '.jsx']
+        contentBase: resolve(__dirname, 'dist'),
+
+        publicPath: '/',
+        port: 3000,
+
     },
 
     module: {
-        preLoaders: [{
-            test: /\.jsx$/,
-            exclude: __dirname + '/node_modules',
-            loaders: ['jshint', 'jsx?harmony&insertPragma=React.DOM']
-        }],
-        loaders: [{
-            test: /\.jsx$/,
-            loaders: ['react-hot', 'jsx?harmony&insertPragma=React.DOM']
-        }, {
-            test: /\.css$/,
-            loaders: ['style', 'css']
-        }, {
-            test: /\.less$/,
-            loaders: ['style', 'css', 'less']
-        }, {
-            test: /\.jpg$/,
-            loader: "file"
-        }]
-    }
+        rules: [
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loader: "babel-loader"
+            },
+            {
+                test: /\.scss$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader",
+                    options: {
+                        sourceMap: true
+                    }
+                }, {
+                    loader: "sass-loader",
+                    options: {
+                        sourceMap: true
+                    }
+                }]
+            },
+            {
+                test: /\.less$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: "style-loader"
+                }, {
+                    loader: "css-loader",
+                    options: {
+                        sourceMap: true
+                    }
+                }, {
+                    loader: "less-loader",
+                    options: {
+                        sourceMap: true
+                    }
+                }]
+            },
+            {
+                test: /\.png|.jpg$/,
+                exclude: /node_modules/,
+                use: [{
+                    loader: "file-loader"
+                }]
+            }
+        ]
+    },
+
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin(),
+    ]
 };

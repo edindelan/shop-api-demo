@@ -1,8 +1,8 @@
 var React = require('react/addons');
-var BaseStore = require('../stores/Base');
+var BaseStore = require('../scripts/stores/Base');
 var Navigation = require('react-router').Navigation;
 var $ = require('jquery');
-require('../util/slick');
+require('../scripts/util/slick');
 
 module.exports = React.createClass({
     displayName: 'Article',
