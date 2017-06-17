@@ -1,18 +1,19 @@
-var React = require('react/addons');
-var Router = require('react-router');
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 
-module.exports = React.createClass({
-    displayName: 'CatalogArticle',
-    render: function () {
+class CatalogArticle extends Component {
+    render() {
         var article = this.props.article || {};
         return (
-            <Router.Link to="article" params={article} className="catalogArticle" key={article.id}>
+            <Link to={'article/' + article.id} className="catalogArticle">
                 <img src={article.media.images[0].smallHdUrl} alt={article.name} />
                 <div className="name">{article.name}</div>
                 <div className="price">
                     {article.units[0].price.formatted}
                 </div>
-            </Router.Link>
+            </Link>
         );
     }
-});
+}
+
+export default CatalogArticle;
