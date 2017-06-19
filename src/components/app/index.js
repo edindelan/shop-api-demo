@@ -26,7 +26,7 @@ class App extends Component {
         // });
         axios('https://api.zalando.com/articles?page=1&pageSize=24&category=all').then(response => {
             console.log('response', response);
-            this.setState({data: response.data.content})
+            this.setState({articles: response.data.content})
         })
 
     }
@@ -54,7 +54,7 @@ class App extends Component {
         // if (this.state.status === 'loading') {
         //     return <div className="splash"></div>;
         // }
-        console.log(this.state);
+        console.log("STATE",this.state);
         return (
             <div className="main">
                 {/*<Filters gender={this.getCurrentGender()}*/}
